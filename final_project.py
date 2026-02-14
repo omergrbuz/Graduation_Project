@@ -66,17 +66,15 @@ class Translator:
 
   def __init__(self):
 
-    access_token = "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"
-
     self.tr_en_model_name = "Helsinki-NLP/opus-mt-tc-big-tr-en"
-    self.tr_en_tokenizer = MarianTokenizer.from_pretrained(self.tr_en_model_name, token=access_token)
-    self.tr_en_model = MarianMTModel.from_pretrained(self.tr_en_model_name, token=access_token)
+    self.tr_en_tokenizer = MarianTokenizer.from_pretrained(self.tr_en_model_name)
+    self.tr_en_model = MarianMTModel.from_pretrained(self.tr_en_model_name)
     self.tr_en_model.to('cuda')
 
     self.en_tr_model_name = "Helsinki-NLP/opus-mt-tc-big-en-tr"
-    self.en_tr_tokenizer = MarianTokenizer.from_pretrained(self.en_tr_model_name,token=access_token)
+    self.en_tr_tokenizer = MarianTokenizer.from_pretrained(self.en_tr_model_name)
 
-    self.en_tr_model = MarianMTModel.from_pretrained(self.en_tr_model_name,token=access_token)
+    self.en_tr_model = MarianMTModel.from_pretrained(self.en_tr_model_name)
     self.en_tr_model.to('cuda')
 
   def tr_to_en(self,tr_str):
